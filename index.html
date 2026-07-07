@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
             color:white;
             text-align: center;
             max-width: 800px;
-            margin: 10px;
+            margin: 0 auto;
             padding: 16px;
         }
         main{
@@ -18,7 +18,6 @@
             color:white;
             margin: 0 auto;
             padding: 16px;
-
         }
         img{
             width: 80px;
@@ -27,6 +26,10 @@
 
         .artigo-autor {
             font-weight: bold;
+        }
+        .direitos{
+            text-align: center;
+            color: black;
         }
     </style>
 </head>
@@ -37,21 +40,23 @@
         <p>Compartilhamento de conhecimento de tecnologia, programação e games</p>
     </header>
     <main>
-        <article>
-        <img src="imagem-blog.png" alt="logotipo conceitual e tecnologia">
-        <div>
-        <p> Por: bruno makiyama</p>
-        <p>Boas vindas ao meu blog| aqui vou Compartilhar dicas de tecnologia e curiosidades da area /p>
-        <button>❤️​<span>0</span></button>
-        <button>👍​<span>0</span></button>
+           <article>
+           <img src="imagem-blog.png" alt="logotipo conceitual e tecnologia">
+           <div>
+           <p> class="artigo-autor">Meu primeiro post</p>
+           <p> Por: bruno makiyama</p>
+           <p>Boas vindas ao meu blog| aqui vou Compartilhar dicas de tecnologia e curiosidades da area /p>
+           <button>❤️​<span>0</span></button>
+           <button>👍​<span>0</span></button>
         </div>
         </article>
 
         <article>
-        <img src="segundo-post.png" alt="logotipo conceitual e tecnologia">
+        <img src="segundo-post.png">
         <div>
+            <p class="artigo-autor">Todos os jogos que eu jogo</p>
         <p> Por: bruno makiyama</p>
-        <p>Nessa postagem estarei falando sobre jogos de video game. </p>
+        <p>Nessa postagem estarei falando sobre jogos fomosos:</p>
            <ul>
                 <li>EA SPORTS - 2026</li>
                 <li>RED DEAD REDEMPTION 2</li>
@@ -66,7 +71,28 @@
         </article>
     </main> 
     <footer>
-        <h3>todos os direitos estão reservados ao autor do blog - Bruno Makiyama </h3>
+        <p class="direitos">Todos os direitos estão reservados ao autor do blog - Bruno Makiyama </p>
     </footer>
 </body>
+<script>
+    const botoes = document.querySelectorAll("button");
+
+    botoes.forEach(function(botao){
+        let curtiu = false;
+        botao.addEventListener("click", botaoClicado);
+
+        function botaoClicado(){
+            console.log("fui clicado");
+            let texto = botao.querySelectorAll("span");
+
+            if(curtiu===false){
+                texto.textContent++;
+                curtiu=true;
+            }else {
+                texto.textContent--;
+                curtiu=false;
+            }
+        }
+    });
+</script>
 </html>
